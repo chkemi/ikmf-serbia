@@ -1,0 +1,22 @@
+<header class="bg-gray-800 text-white p-2 flex items-center flex-wrap">
+  <i
+    class="fa-solid fa-bars fa-lg p-3 cursor-pointer"
+    (click)="toggleLinks = !toggleLinks"
+  ></i>
+  <img
+    src="../../assets/ikmf-serbia-logo.svg"
+    alt="IKMF Serbia Logo"
+    class="mx-auto inline-block"
+    width="200"
+  />
+  <nav *ngIf="toggleLinks" class="w-full divide-y divide-gray-700">
+    <a
+      class="block hover:bg-gray-900 p-2"
+      *ngFor="let link of links"
+      [routerLink]="[link.path]"
+      routerLinkActive="router-link-active"
+      (click)="toggleLinks = !toggleLinks"
+      >{{ link.name }}</a
+    >
+  </nav>
+</header>
