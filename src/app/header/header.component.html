@@ -1,22 +1,32 @@
-<header class="bg-gray-800 text-white p-2 flex items-center flex-wrap">
-  <i
-    class="fa-solid fa-bars fa-lg p-3 cursor-pointer"
-    (click)="toggleLinks = !toggleLinks"
-  ></i>
-  <img
-    src="assets/ikmf-serbia-logo.svg"
-    alt="IKMF Serbia Logo"
-    class="mx-auto inline-block"
-    width="200"
-  />
-  <nav *ngIf="toggleLinks" class="w-full divide-y divide-gray-700">
-    <a
-      class="block hover:bg-gray-900 p-2"
-      *ngFor="let link of links"
-      [routerLink]="[link.path]"
-      routerLinkActive="router-link-active"
-      (click)="toggleLinks = !toggleLinks"
-      >{{ link.name }}</a
+<header class="bg-black text-white p-3 border-t-2 border-[#C5202E] lg:text-lg">
+  <div class="flex items-center flex-wrap max-w-6xl mx-auto">
+    <div class="toggler flex justify-center">
+      <span
+        *ngFor="let icon of icons; let first = first"
+        [ngClass]="{ hidden: first ? showLinks : !showLinks }"
+        class="fa-solid {{ icon }} fa-lg p-3 cursor-pointer lg:hidden w-[40px]"
+        (click)="showLinks = !showLinks"
+      >
+      </span>
+    </div>
+    <img
+      src="assets/ikmf-serbia-logo.svg"
+      alt="IKMF Serbia Logo"
+      class="mx-auto inline-block lg:m-0"
+      width="200"
+    />
+    <nav
+      [ngClass]="{ hidden: !showLinks }"
+      class="w-full divide-y divide-gray-700 lg:w-min flex flex-col lg:flex lg:flex-row lg:flex-grow lg:divide-y-0 lg:justify-end"
     >
-  </nav>
+      <a
+        class="hover:bg-gray-900 p-2 mx-1 first-of-type:mt-2 lg:first-of-type:mt-0"
+        *ngFor="let link of links"
+        [routerLink]="[link.path]"
+        routerLinkActive="router-link-active"
+        (click)="showLinks = !showLinks"
+        >{{ link.name }}</a
+      >
+    </nav>
+  </div>
 </header>

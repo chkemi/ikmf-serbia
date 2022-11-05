@@ -6,45 +6,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  toggleLinks = false;
+  icons = ['fa-bars', 'fa-xmark'];
+  showLinks = false;
   links = [
     {
       name: 'Home',
-      path: '/'
+      path: '/',
     },
     {
       name: 'O Nama',
-      path: '/'
+      path: '/o-nama',
     },
     {
       name: 'Krav Maga',
-      path: '/'
+      path: '/krav-maga',
     },
     {
       name: 'Trening',
-      path: '/'
+      path: '/trening'
     },
     {
       name: 'Media',
-      path: '/'
+      path: '/media'
     },
     {
       name: 'Cene',
-      path: '/'
+      path: '/cene'
     },
     {
       name: 'Kontakt',
-      path: '/'
+      path: '/kontakt'
     },
     {
       name: 'Postani Instruktor',
-      path: '/'
+      path: '/postani-instruktor'
     },
   ]
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
