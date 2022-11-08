@@ -1,13 +1,13 @@
 <header class="bg-black text-white p-3 border-t-2 border-[#C5202E] lg:text-lg">
   <div class="flex items-center flex-wrap max-w-6xl mx-auto">
-    <div class="toggler flex justify-center">
+    <div
+      class="toggler p-2 flex flex-col justify-center lg:hidden cursor-pointer"
+      (click)="showLinks = !showLinks"
+    >
       <span
-        *ngFor="let icon of icons; let first = first"
-        [ngClass]="{ hidden: first ? showLinks : !showLinks }"
-        class="fa-solid {{ icon }} fa-lg p-3 cursor-pointer lg:hidden w-[40px]"
-        (click)="showLinks = !showLinks"
-      >
-      </span>
+        [ngClass]="{ toggled: showLinks }"
+        *ngFor="let item of [0, 1, 2]"
+      ></span>
     </div>
     <img
       src="assets/ikmf-serbia-logo.svg"
